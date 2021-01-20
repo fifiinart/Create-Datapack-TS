@@ -4,5 +4,8 @@
   "description": "An npm package to create datapacks using TypeScript.",
   "main": "dist/index.js",
   "author": "FifiInArt",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^14.14.22"
+  }
 }
