@@ -6,7 +6,7 @@ export interface SmithingRecipeObject extends RecipeObject {
   result: Item
 }
 export class SmithingRecipe implements SmithingRecipeObject, Recipe {
-  type = "minecraft:stonecutting"
+  type = "minecraft:smithing"
   group: string
   base: Item
   addition: Item

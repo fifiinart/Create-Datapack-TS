@@ -2,6 +2,7 @@ import { CookingRecipe, CookingObject } from "./Cooking";
 import { Item } from "../../../util/Item";
 
 export class BlastingRecipe extends CookingRecipe {
+  type: "minecraft:blasting";
   constructor(recipeObject: Omit<CookingObject, "type">)
   constructor(group: string, ingredient: Item | Item[], result: string, experience: number, cookingtime?: number)
   constructor(recipeObjectOrGroup: Omit<CookingObject, "type"> | string, ingredient?: Item | Item[], result?: string, experience?: number, cookingtime?: number) {
