@@ -6,7 +6,7 @@ export interface CraftingShapedObject extends RecipeObject {
   result: CountableItem
 }
 export class CraftingShapedRecipe implements CraftingShapedObject, Recipe<CraftingShapedObject> {
-  type = "minecraft:crafting_shapeless"
+  type = "minecraft:crafting_shaped"
   group: string
   pattern: string[]
   key: Array<Item | Item[]>
