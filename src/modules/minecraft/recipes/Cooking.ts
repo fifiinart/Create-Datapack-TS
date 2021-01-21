@@ -1,5 +1,5 @@
-import { Recipe, RecipeObject } from "../Recipe";
-import { Item } from "./Item";
+import { Recipe, RecipeObject } from "../../../Recipe";
+import { Item } from "../../../util/Item";
 export interface CookingObject extends RecipeObject {
   ingredient: Item | Item[],
   result: string,
@@ -7,7 +7,7 @@ export interface CookingObject extends RecipeObject {
   cookingtime?: number
 }
 
-export class CookingRecipe implements Recipe<CookingObject>, CookingObject {
+export class CookingRecipe implements Recipe, CookingObject {
   type: string;
   group: string
   ingredient: Item | Item[]
@@ -34,12 +34,14 @@ export class CookingRecipe implements Recipe<CookingObject>, CookingObject {
     }
   }
 
-  toJSON = () => ({
-    type: this.type,
-    group: this.group,
-    ingredient: this.ingredient,
-    result: this.result,
-    experience: this.experience,
-    cookingtime: this.cookingtime
-  })
+  toJSON() {
+    return {
+      type: this.type,
+      group: this.group,
+      ingredient: this.ingredient,
+      result: this.result,
+      experience: this.experience,
+      cookingtime: this.cookingtime
+    }
+  }
 }

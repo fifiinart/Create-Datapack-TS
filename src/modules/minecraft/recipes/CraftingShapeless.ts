@@ -1,10 +1,10 @@
-import { Recipe, RecipeObject } from "../Recipe";
-import { CountableItem, Item } from "./Item";
+import { Recipe, RecipeObject } from "../../../Recipe";
+import { CountableItem, Item } from "../../../util/Item";
 export interface CraftingShapelessObject extends RecipeObject {
   ingredients: Array<Item | Item[]>
   result: CountableItem
 }
-export class CraftingShapelessRecipe implements CraftingShapelessObject, Recipe<CraftingShapelessObject> {
+export class CraftingShapelessRecipe implements CraftingShapelessObject, Recipe {
   type = "minecraft:crafting_shapeless"
   group: string
   ingredients: Array<Item | Item[]>

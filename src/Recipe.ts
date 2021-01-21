@@ -3,6 +3,6 @@ export interface RecipeObject {
   group: string
 }
 
-export interface Recipe<R extends RecipeObject> {
-  toJSON(): R
+export abstract class Recipe {
+  abstract toJSON(): object
 }

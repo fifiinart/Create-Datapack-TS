@@ -1,11 +1,11 @@
-import { Recipe, RecipeObject } from "../Recipe";
-import { Item } from "./Item";
+import { Recipe, RecipeObject } from "../../../Recipe";
+import { Item } from "../../../util/Item";
 export interface SmithingRecipeObject extends RecipeObject {
   base: Item,
   addition: Item,
   result: Item
 }
-export class SmithingRecipe implements SmithingRecipeObject, Recipe<SmithingRecipeObject> {
+export class SmithingRecipe implements SmithingRecipeObject, Recipe {
   type = "minecraft:stonecutting"
   group: string
   base: Item
@@ -29,11 +29,13 @@ export class SmithingRecipe implements SmithingRecipeObject, Recipe<SmithingReci
     }
   }
 
-  toJSON = () => ({
-    type: this.type,
-    group: this.group,
-    base: this.base,
-    addition: this.addition,
-    result: this.result
-  })
+  toJSON() {
+    return {
+      type: this.type,
+      group: this.group,
+      base: this.base,
+      addition: this.addition,
+      result: this.result
+    }
+  }
 }

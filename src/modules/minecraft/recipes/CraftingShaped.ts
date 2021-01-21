@@ -1,11 +1,11 @@
-import { Recipe, RecipeObject } from "../Recipe";
-import { CountableItem, Item } from "./Item";
+import { Recipe, RecipeObject } from "../../../Recipe";
+import { CountableItem, Item } from "../../../util/Item";
 export interface CraftingShapedObject extends RecipeObject {
   pattern: string[];
   key: Array<Item | Item[]>
   result: CountableItem
 }
-export class CraftingShapedRecipe implements CraftingShapedObject, Recipe<CraftingShapedObject> {
+export class CraftingShapedRecipe implements CraftingShapedObject, Recipe {
   type = "minecraft:crafting_shaped"
   group: string
   pattern: string[]

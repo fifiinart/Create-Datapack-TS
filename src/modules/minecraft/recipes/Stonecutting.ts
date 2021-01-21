@@ -1,10 +1,10 @@
-import { Recipe, RecipeObject } from "../Recipe";
-import { Item } from "./Item";
+import { Recipe, RecipeObject } from "../../../Recipe";
+import { Item } from "../../../util/Item";
 export interface StonecuttingRecipeObject extends RecipeObject {
   ingredient: Item | Item[]
   result: Item & { count: number }
 }
-export class StonecuttingRecipe implements StonecuttingRecipeObject, Recipe<StonecuttingRecipeObject> {
+export class StonecuttingRecipe implements StonecuttingRecipeObject, Recipe {
   type = "minecraft:stonecutting"
   group: string
   ingredient: Item | Item[]
@@ -25,10 +25,12 @@ export class StonecuttingRecipe implements StonecuttingRecipeObject, Recipe<Ston
     }
   }
 
-  toJSON = () => ({
-    type: this.type,
-    group: this.group,
-    ingredient: this.ingredient,
-    result: this.result
-  })
+  toJSON() {
+    return {
+      type: this.type,
+      group: this.group,
+      ingredient: this.ingredient,
+      result: this.result
+    }
+  }
 }
