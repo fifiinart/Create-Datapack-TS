@@ -1,7 +1,7 @@
 import { Recipe } from "./Recipe";
 type Module = {
   recipes: {
-    [key: string]: (...args: any) => Recipe
+    [key: string]: new (...args: any) => Recipe
   }
 }
 export class Namespace {
