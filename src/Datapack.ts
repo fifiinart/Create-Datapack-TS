@@ -1,4 +1,5 @@
 import { JSONTextObject } from "./JSONTextObject";
+import { Namespace } from "./Namespace";
 
 interface MCMeta {
   pack: {
@@ -9,7 +10,9 @@ interface MCMeta {
 export class Datapack {
   mcMeta: MCMeta
   packPNG: string | null
-
+  namespaces: {
+    [key: string]: Namespace
+  } = {};
   constructor(mcMeta: MCMeta, packPNG?: string)
   constructor(description: string, packFormat: 4 | 5 | 6 | 7, packPNG?: string)
   constructor(mcMetaOrDescription: MCMeta | string, packFormatOrPng?: 4 | 5 | 6 | 7 | string, packPNG?: string) {
@@ -27,5 +30,8 @@ export class Datapack {
     }
   }
 
-
+  addNamespace(name: string, namespace: Namespace): this {
+    this.namespaces[name] = namespace;
+    return this;
+  }
 }
