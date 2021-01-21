@@ -1,6 +1,9 @@
-import { Module } from "./Module"
 import { Recipe } from "./Recipe";
-
+type Module = {
+  recipes: {
+    [key: string]: (...args: any) => Recipe
+  }
+}
 export class Namespace {
   modules: Module[]
   recipes: {
@@ -8,13 +11,14 @@ export class Namespace {
   }
   constructor(modules: Module[]) {
     this.modules = modules;
+    this.recipes = {};
   }
 
   addRecipe(key: string, recipe: Recipe): this {
     let recipeValid = false;
     for (const module of this.modules) {
-      for (const validRecipeConstructor of module.recipes) {
-        if (recipe.constructor === validRecipeConstructor) {
+      for (const validRecipeConstructor in module.recipes) {
+        if (recipe.constructor === module.recipes[validRecipeConstructor]) {
           recipeValid = true;
           break;
         }
