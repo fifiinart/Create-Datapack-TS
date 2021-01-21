@@ -11,14 +11,14 @@ export class StonecuttingRecipe implements StonecuttingRecipeObject, Recipe<Ston
   result: Item & { count: number }
 
   constructor(recipeObject: Omit<StonecuttingRecipeObject, "type">)
-  constructor(group: string, ingredients: Item | Item[], result: Item & { count: number })
+  constructor(group: string, ingredient: Item | Item[], result: Item & { count: number })
   constructor(recipeObjectOrGroup: Omit<StonecuttingRecipeObject, "type"> | string, ingredient?: Item | Item[], result?: Item & { count: number }) {
     if (typeof recipeObjectOrGroup === "object") {
       this.group = recipeObjectOrGroup.group;
       this.ingredient = recipeObjectOrGroup.ingredient;
       this.result = recipeObjectOrGroup.result;
     } else {
-      if (ingredient == undefined || result == undefined) throw new Error("Not all parameters were passed in at CraftingShapelessRecipe()")
+      if (ingredient == undefined || result == undefined) throw new Error("Not all parameters were passed in at Stonecutting()")
       this.group = recipeObjectOrGroup;
       this.ingredient = ingredient;
       this.result = result;
